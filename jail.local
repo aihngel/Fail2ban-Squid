@@ -1,0 +1,60 @@
+[HNAP]
+enabled = true
+port = all
+filter = HNAP
+action = iptables-allports[name=HNAP, protocol=all]
+logpath = /var/log/squid3/access.log
+maxretry = 1
+bantime = -1
+findtime = 21600
+
+[adminhax]
+enabled = true
+port = all
+filter = adminhax
+action = iptables-allports[name=adminhax, protocol=all]
+logpath = /var/log/squid3/access.log
+maxretry = 3
+findtime = 21600
+bantime = 21600
+
+[unicode_attack]
+enabled = true
+logpath = /var/log/squid3/access.log
+port = all
+filter = unicode
+maxretry = 1
+bantime = -1
+findtime = 21600
+action = iptables-allports[name=unicode, protocol=all]
+
+[badverb]
+enabled = true
+logpath = /var/log/squid3/access.log
+port = all
+filter = badverb
+maxretry = 1
+findtime = 21600
+bantime = 604800
+action = iptables-allports[name=badverb, protocol=all]
+
+[xmlrpc]
+enabled = true
+logpath = /var/log/squid3/access.log
+port = all
+filter = xmlrpc
+maxretry = 1
+findtime = 3600
+bantime = 604800
+action = iptables-allports[name=xmlrpc, protocol=all]
+
+[sniffer]
+enabled = true
+logpath = /var/log/squid3/access.log
+port = all
+filter = sniffer
+maxretry = 1
+findtime = 3600
+bantime = 604800
+action = iptables-allports[name=sniffer, protocol=all]
+
